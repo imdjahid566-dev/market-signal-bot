@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAHID AI BOT</title>
+<style>
+body{background:#0e121e;color:white;font-family:sans-serif;text-align:center;padding:20px}
+.box{background:#1c253f;padding:20px;border-radius:15px;margin:15px 0}
+#signal{font-size:55px;font-weight:bold}
+button{background:#00ff88;border:none;padding:15px 30px;font-size:18px;border-radius:10px;font-weight:bold}
+.green{color:#00ff88}.red{color:#ff4444}.yellow{color:#ffcc00}
+</style>
+</head>
+<body>
+<h2>🤖 JAHID AI BOT • LIVE</h2>
+<p id="price">Market: LIVE • BTC $79612</p>
+<div class="box">
+<p>GBP/NZD Analysis</p>
+<div id="signal" class="yellow">WAIT...</div>
+<p id="reason">Analyzing...</p>
+<p id="time"></p>
+</div>
+<button onclick="analyze()">🔄 ANALYZE NOW</button>
+<p style="color:#666;font-size:12px">Demo only. Not financial advice.</p>
+<script>
+function analyze(){
+let r=Math.random()*100;
+let s=document.getElementById('signal');
+let rs=document.getElementById('reason');
+let t=new Date().toLocaleTimeString();
+document.getElementById('time').innerText='Time: '+t;
+if(r>60){s.innerText='🟢 UP';s.className='green';rs.innerText='Buyers strong! Support থেকে bounce আসবে।'}
+else if(r<40){s.innerText='🔴 DOWN';s.className='red';rs.innerText='Sellers strong. লাল ক্যান্ডেলের pressure আছে।'}
+else{s.innerText='🟡 WAIT';s.className='yellow';rs.innerText='Market confused. এখন ট্রেড নিও না।'}
+}
+analyze();
+setInterval(()=>{document.getElementById('price').innerText='Market: LIVE • BTC $'+(79500+Math.floor(Math.random()*500))},3000);
+</script>
+</body>
+</html>
